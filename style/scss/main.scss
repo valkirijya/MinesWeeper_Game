@@ -1,53 +1,119 @@
-.container {
-  width: 500px;
-  align-content: center;
-}
+$red: #ff6f8e;
+$yellow: #f5f0b3;
+$green: #85cfcc;
+$shadow: 2px 2px 15px 2px rgb(88, 87, 87);
+$t-shadow: 2px 2px 3px rgba(88, 87, 87, 0.637);
 
+html,
+body {
+  font-family: "Patrick Hand SC", cursive;
+  height: 100%;
+  margin: 0;
+  text-align: center;
+  font-size: 1.3em;
+  transition: all 1s;
+}
+.box {
+  padding-bottom: 10px;
+  overflow: hidden;
+  min-height: 100%;
+  background-image: radial-gradient(
+    circle closest-corner at 40% 10%,
+    $red,
+    $yellow,
+    $green
+  );
+}
+h1 {
+  margin: 10px 0;
+}
+section {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+.title-bomb {
+  display: inline-block;
+  &:hover {
+    animation: title-bomb 1s infinite;
+  }
+}
+@keyframes title-bomb {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.3);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.container {
+  width: 45%;
+  display: flex;
+  margin: 0;
+  justify-content: center;
+  flex-direction: column;
+}
+.description,
+.options {
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+}
 .grid {
   height: 400px;
   width: 400px;
   display: flex;
   flex-wrap: wrap;
-  background-color: #dcd6bc;
-  margin-left: 50px;
-  margin-top: 20px;
-  border: 10px solid #dcd6bc;
-  margin-bottom: 10px;
+  background-color: #dcd6bc6e;
+  margin: 1vw auto;
+  box-shadow: $shadow;
+  transition: all 0.5s;
 }
 
-div {
-  font-size: 25px;
-  text-align: center;
-  font-family: 'Roboto Mono', monospace;
-
-}
-.valid {
-  height: 40px;
-  width: 40px;
-  border: 5px solid;
-  border-color: #f5f3eb #bab7a9 #bab7a9 #fff9db;
-  box-sizing: border-box;
+h1,
+.flags,
+#result,
+.rights {
+  text-shadow: $t-shadow;
 }
 
-.checked {
-  height: 40px;
-  width: 40px;
-  border: 2px solid;
-  background-color: #cecab7;
-  border-color: #9c998d;
-  box-sizing: border-box;
-}
-
+.valid,
+.checked,
 .bomb {
   height: 40px;
   width: 40px;
+  box-sizing: border-box;
+}
+.valid {
   border: 5px solid;
   border-color: #f5f3eb #bab7a9 #bab7a9 #fff9db;
-  box-sizing: border-box;
+}
+
+.checked {
+  border: 2px solid;
+  background-color: #cecab70e;
+  border-color: #ffffff8a;
+}
+.valid,
+.bomb {
+  transition: all 0.5s;
+  &:hover {
+    background-color: #a5e9e77c;
+    border-color: #bab7a9 #f5f3eb #fff9db #bab7a9;
+  }
+}
+
+.bomb {
+  border: 5px solid;
+  border-color: #f5f3eb #bab7a9 #bab7a9 #fff9db;
 }
 
 .one {
-  color: #e76346;
+  color: $red;
 }
 
 .two {
@@ -55,14 +121,51 @@ div {
 }
 
 .three {
-  color: #57da59;
+  color: #5eac5e;
 }
 
-.four{
+.four {
   color: #bb41d3;
+}
+.five {
+  color: darkblue;
 }
 
 #result {
-  margin-top: 5px;
-  color: #e76346;
+  display: inline-block;
+  // width: 50%;
+  margin: 5px auto;
+  color: $red;
+  font-size: 1.7em;
 }
+@keyframes result {
+  0% {
+    transform: translateY(-400px) scale(1);
+  }
+  50% {
+    transform: translateY(-400px) scale(4);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+footer {
+  margin: 0;
+  height: 7vw;
+  background-image: linear-gradient($green 1px, $yellow);
+  box-shadow: $shadow;
+  display: flex;
+  justify-content: space-around;
+  font-size: 0.8em;
+}
+.rights,
+.author,
+.contacts {
+  width: 33.33%;
+  display: flex;
+  justify-content: center;
+  display: inline-block;
+  margin: auto 15px;
+}
+

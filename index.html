@@ -1,29 +1,70 @@
 <!DOCTYPE html>
-<html lang="ru" dir="ltr">
+<html lang="en" dir="ltr">
   <head>
     <meta charset="UTF-8" />
     <meta name="author" content="" />
     <meta name="keywords" content="" />
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mineaweeper</title>
+    <title>MinesWeeper 💣</title>
     <link rel="shortcut icon" href="" type="" />
     <link rel="stylesheet" href="style/css/main.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Patrick+Hand+SC&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://use.fontawesome.com/f1f19107fa.js"></script>
     <script src="js/main.js" charset="UTF-8"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@700&display=swap" rel="stylesheet">
   </head>
   <body>
-    <header></header>
-    <main>
-      <section>
-        <div class="container">
-          <div class="grid"></div>
-          <div>Flags left: <span id='flags-left'></span></div>
-          <div id="result"></div>
-        </div>
-      
-      </section>
-    </main>
-    <footer></footer>
+    <div class="box">
+      <header>
+        <h1 class="title" title="Find all bombs!">
+          MinesWeeper<span class="title-bomb">💣</span>
+        </h1>
+      </header>
+      <main>
+        <section>
+          <div class="description">
+            <h3>Description</h3>
+            <p>
+              The objective of the game is to clear a board containing hidden
+              "mines" without detonating any of them, with help from clues about
+              the number of neighboring mines in each field.
+            </p>
+          </div>
+          <div class="container">
+            <div class="grid"></div>
+            <div
+              class="flags"
+              title="Click right mouse-button on square to set flag"
+            >
+              Flags left: <span id="flags-left"></span>
+            </div>
+            <div id="result"></div>
+          </div>
+          <div class="options">
+            <h3>Rules</h3>
+            <p>Click right mouse-button on square to set flag - 🚩</p>
+            <p>Click on mine - 💣 : GAME OVER</p>
+          </div>
+        </section>
+      </main>
+    </div>
+    <footer>
+      <div class="author">
+        <i class="fa fa-user-circle-o" aria-hidden="true"></i> Nataly_S_WD
+      </div>
+      <div class="rights">
+        <i class="fa fa-copyright" aria-hidden="true"></i> All rights are
+        reserved 
+      </div>
+      <div class="contacts">
+        <i class="fa fa-envelope-o" aria-hidden="true"></i>
+        <i class="fa fa-telegram" aria-hidden="true"></i>
+
+        <i class="fa fa-github" aria-hidden="true"></i>
+      </div>
+    </footer>
   </body>
 </html>

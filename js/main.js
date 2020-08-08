@@ -118,6 +118,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (total == 2) square.classList.add("two");
         if (total == 3) square.classList.add("three");
         if (total == 4) square.classList.add("four");
+        if (total == 5) square.classList.add("five");
         square.innerHTML = total;
         return;
       }
@@ -178,6 +179,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // game over
   function gameOver(square) {
     result.innerHTML = "BOOM! Game Over!";
+    result.style.animation = "result 4s 1";
     isGameOver = true;
 
     //show All the bombs
@@ -202,6 +204,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
       if (matches === bombAmount) {
         result.innerHTML = "YOU WIN!";
+        result.style.animation = "result 4s 1";
         isGameOver = true;
       }
     }
