@@ -1,6 +1,15 @@
+@charset "UTF-8";
 @font-face {
   font-family: "Patrick Hand SC";
-  src: loval("Patrick Hand SC"), url("../../font/PatrickHandSC-Regular.ttf");
+  src: local("Patrick Hand SC"), url("../../font/PatrickHandSC-Regular.ttf");
+}
+
+::-webkit-scrollbar {
+  /* chrome based */
+  width: 0px;
+  /* ширина scrollbar'a */
+  background: transparent;
+  /* опционально */
 }
 
 html,
@@ -12,6 +21,10 @@ body {
   font-size: 1.2em;
   -webkit-transition: all 1s;
   transition: all 1s;
+  -ms-overflow-style: none;
+  /* IE 10+ */
+  scrollbar-width: none;
+  /* Firefox */
 }
 
 .box {
@@ -21,17 +34,16 @@ body {
   background-image: radial-gradient(circle closest-corner at 40% 10%, #ff6f8e, #f5f0b3, #85cfcc);
 }
 
-h1 {
-  margin: 10px 0;
+h1,
+h3,
+.flags,
+#result,
+.rights {
+  text-shadow: 2px 2px 3px rgba(88, 87, 87, 0.637);
 }
 
-section {
-  width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+h1 {
+  margin: 10px 0;
 }
 
 .pulse {
@@ -41,6 +53,15 @@ section {
 .pulse:hover {
   -webkit-animation: title-bomb 1s infinite;
           animation: title-bomb 1s infinite;
+}
+
+section {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
 @-webkit-keyframes title-bomb {
@@ -73,6 +94,19 @@ section {
   }
 }
 
+.description,
+.options {
+  width: 25%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 15px;
+}
+
 .container {
   width: 45%;
   display: -webkit-box;
@@ -86,19 +120,6 @@ section {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-}
-
-.description,
-.options {
-  width: 25%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  padding: 15px;
 }
 
 .grid {
@@ -115,14 +136,6 @@ section {
           box-shadow: 2px 2px 15px 2px #585757;
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
-}
-
-h1,
-h3,
-.flags,
-#result,
-.rights {
-  text-shadow: 2px 2px 3px rgba(88, 87, 87, 0.637);
 }
 
 .valid,
@@ -204,8 +217,13 @@ h3,
 }
 
 .restart:hover {
+  cursor: pointer;
   -webkit-box-shadow: 1px 1px 3px 1px #585757;
           box-shadow: 1px 1px 3px 1px #585757;
+}
+
+.restart:focus {
+  outline: none;
 }
 
 #result {
@@ -221,8 +239,8 @@ h3,
             transform: translateY(-400px) scale(1);
   }
   50% {
-    -webkit-transform: translateY(-400px) scale(4);
-            transform: translateY(-400px) scale(4);
+    -webkit-transform: translateY(-400px) scale(3.9);
+            transform: translateY(-400px) scale(3.9);
   }
   100% {
     -webkit-transform: scale(1);
@@ -236,8 +254,8 @@ h3,
             transform: translateY(-400px) scale(1);
   }
   50% {
-    -webkit-transform: translateY(-400px) scale(4);
-            transform: translateY(-400px) scale(4);
+    -webkit-transform: translateY(-400px) scale(3.9);
+            transform: translateY(-400px) scale(3.9);
   }
   100% {
     -webkit-transform: scale(1);
@@ -256,7 +274,7 @@ footer {
   display: flex;
   -ms-flex-pack: distribute;
       justify-content: space-around;
-  font-size: 0.8em;
+  font-size: 1em;
 }
 
 .rights,
@@ -270,11 +288,32 @@ footer {
       -ms-flex-pack: center;
           justify-content: center;
   margin: auto 15px;
+  vertical-align: middle;
+}
+
+.rights p,
+.author p,
+.contacts p {
+  margin: 0;
 }
 
 .icon {
+  font-size: 1.1em;
   display: inline-block;
-  margin: 0 15px;
+  margin: 0 10px;
+  text-shadow: 2px 2px 3px rgba(88, 87, 87, 0.637);
+  -webkit-transition: all .5s;
+  transition: all .5s;
+}
+
+.icon:hover {
+  -webkit-transform: scale(1.6);
+          transform: scale(1.6);
+}
+
+.icon a {
+  text-decoration: none;
+  color: black;
 }
 
 @media (max-width: 1200px) {
@@ -297,5 +336,17 @@ footer {
   .contacts {
     width: 100%;
     margin: 10px;
+  }
+  @-webkit-keyframes result {
+    50% {
+      -webkit-transform: translateY(-400px) scale(1.5);
+              transform: translateY(-400px) scale(1.5);
+    }
+  }
+  @keyframes result {
+    50% {
+      -webkit-transform: translateY(-400px) scale(1.5);
+              transform: translateY(-400px) scale(1.5);
+    }
   }
 }

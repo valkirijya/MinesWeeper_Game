@@ -8,9 +8,15 @@ $t-shadow: 2px 2px 3px rgba(88, 87, 87, 0.637);
 /////////////////Font///////////////////////////////
 @font-face {
   font-family: "Patrick Hand SC";
-  src: loval("Patrick Hand SC"), url("../../font/PatrickHandSC-Regular.ttf");
+  src: local("Patrick Hand SC"), url("../../font/PatrickHandSC-Regular.ttf");
 }
 
+//////////////////Main settings/////////////////////
+::-webkit-scrollbar {
+  /* chrome based */
+  width: 0px; /* ширина scrollbar'a */
+  background: transparent; /* опционально */
+}
 html,
 body {
   font-family: "Patrick Hand SC", cursive;
@@ -19,6 +25,8 @@ body {
   text-align: center;
   font-size: 1.2em;
   transition: all 1s;
+  -ms-overflow-style: none; /* IE 10+ */
+  scrollbar-width: none; /* Firefox */
 }
 .box {
   padding-bottom: 10px;
@@ -26,13 +34,17 @@ body {
   min-height: 100%;
   background-image: radial-gradient(circle closest-corner at 40% 10%, $red, $yellow, $green);
 }
+h1,
+h3,
+.flags,
+#result,
+.rights {
+  text-shadow: $t-shadow;
+}
+
+/////////////////////Header/////////////////////////
 h1 {
   margin: 10px 0;
-}
-section {
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
 }
 .pulse {
   display: inline-block;
@@ -40,6 +52,14 @@ section {
     animation: title-bomb 1s infinite;
   }
 }
+
+////////////////Aside columns with description//////
+section {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
 @keyframes title-bomb {
   0% {
     transform: scale(1);
@@ -51,19 +71,21 @@ section {
     transform: scale(1);
   }
 }
-.container {
-  width: 45%;
-  display: flex;
-  margin: 0;
-  justify-content: center;
-  flex-direction: column;
-}
 .description,
 .options {
   width: 25%;
   display: flex;
   flex-direction: column;
   padding: 15px;
+}
+
+//////////////////////Main column with game/////////
+.container {
+  width: 45%;
+  display: flex;
+  margin: 0;
+  justify-content: center;
+  flex-direction: column;
 }
 .grid {
   height: 400px;
@@ -75,15 +97,6 @@ section {
   box-shadow: $shadow;
   transition: all 0.5s;
 }
-
-h1,
-h3,
-.flags,
-#result,
-.rights {
-  text-shadow: $t-shadow;
-}
-
 .valid,
 .checked,
 .bomb {
@@ -95,7 +108,6 @@ h3,
   border: 5px solid;
   border-color: #f5f3eb #bab7a9 #bab7a9 #fff9db;
 }
-
 .valid.checked:hover {
   background-color: #cecab70e;
   border-color: #ffffff8a;
@@ -113,24 +125,19 @@ h3,
     border-color: #bab7a9 #f5f3eb #fff9db #bab7a9;
   }
 }
-
 .bomb {
   border: 5px solid;
   border-color: #f5f3eb #bab7a9 #bab7a9 #fff9db;
 }
-
 .one {
   color: $red;
 }
-
 .two {
   color: #4199d3;
 }
-
 .three {
   color: #5eac5e;
 }
-
 .four {
   color: #bb41d3;
 }
@@ -150,10 +157,13 @@ h3,
   text-shadow: $t-shadow;
   box-shadow: $shadow;
   &:hover {
+    cursor: pointer;
     box-shadow: 1px 1px 3px 1px rgb(88, 87, 87);
   }
+  &:focus {
+    outline: none;
+  }
 }
-
 #result {
   display: inline-block;
   margin: 5px auto;
@@ -165,13 +175,14 @@ h3,
     transform: translateY(-400px) scale(1);
   }
   50% {
-    transform: translateY(-400px) scale(4);
+    transform: translateY(-400px) scale(3.9);
   }
   100% {
     transform: scale(1);
   }
 }
 
+/////////////////////////Footer/////////////////////
 footer {
   margin: 0;
   height: 7vw;
@@ -179,7 +190,7 @@ footer {
   box-shadow: $shadow;
   display: flex;
   justify-content: space-around;
-  font-size: 0.8em;
+  font-size: 1em;
 }
 .rights,
 .author,
@@ -188,12 +199,27 @@ footer {
   display: flex;
   justify-content: center;
   margin: auto 15px;
+  vertical-align: middle;
+  p {
+    margin: 0;
+  }
 }
 .icon {
+  font-size: 1.1em;
   display: inline-block;
-  margin: 0 15px;
+  margin: 0 10px;
+  text-shadow: $t-shadow;
+  transition: all .5s;
+  &:hover {
+    transform: scale(1.6);
+  }
+  a {
+    text-decoration: none;
+    color: black;
+  }
 }
 
+//////////////////////Adaptive//////////////////////
 @media (max-width: 1200px) {
   .container {
     width: 100%;
@@ -204,10 +230,17 @@ footer {
   }
   footer {
     height: auto;
-  flex-direction: column;}
+    flex-direction: column;
+  }
   .rights,
-.author,
-.contacts {
-  width: 100%;
-margin: 10px;}
+  .author,
+  .contacts {
+    width: 100%;
+    margin: 10px;
+  }
+  @keyframes result {
+    50% {
+      transform: translateY(-400px) scale(1.5);
+    }
+  }
 }
