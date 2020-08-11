@@ -2,11 +2,14 @@ document.addEventListener("DOMContentLoaded", () => {
   const grid = document.querySelector(".grid");
   const flagsLeft = document.querySelector("#flags-left");
   const result = document.querySelector("#result");
+  const button = document.querySelector(".restart");
   let width = 10;
   let bombAmount = 20;
   let flags = 0;
   let squares = [];
   let isGameOver = false;
+
+
 
   //create Board
   function createBoard() {
@@ -181,6 +184,7 @@ document.addEventListener("DOMContentLoaded", () => {
     result.innerHTML = "BOOM! Game Over!";
     result.style.animation = "result 4s 1";
     isGameOver = true;
+    button.style.visibility = "visible";
 
     //show All the bombs
     squares.forEach((square) => {
@@ -206,6 +210,7 @@ document.addEventListener("DOMContentLoaded", () => {
         result.innerHTML = "YOU WIN!";
         result.style.animation = "result 4s 1";
         isGameOver = true;
+        button.style.visibility = "visible";
       }
     }
   }

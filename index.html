@@ -9,10 +9,6 @@
     <title>MinesWeeper 💣</title>
     <link rel="shortcut icon" href="" type="" />
     <link rel="stylesheet" href="style/css/main.css" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Patrick+Hand+SC&display=swap"
-      rel="stylesheet"
-    />
     <script src="https://use.fontawesome.com/f1f19107fa.js"></script>
     <script src="js/main.js" charset="UTF-8"></script>
   </head>
@@ -20,7 +16,7 @@
     <div class="box">
       <header>
         <h1 class="title" title="Find all bombs!">
-          MinesWeeper<span class="title-bomb">💣</span>
+          MinesWeeper <span class="pulse">💣</span>
         </h1>
       </header>
       <main>
@@ -45,25 +41,41 @@
           </div>
           <div class="options">
             <h3>Rules</h3>
-            <p>Click right mouse-button on square to set flag - 🚩</p>
-            <p>Click on mine - 💣 : GAME OVER</p>
+            <p>
+              Click right mouse-button on square to set flag -
+              <span class="pulse">🚩</span>
+            </p>
+            <p>Click on mine - <span class="pulse">💣</span> : GAME OVER</p>
+            <button onClick="location=URL" class="restart">
+              New Game
+            </button>
           </div>
         </section>
       </main>
     </div>
     <footer>
       <div class="author">
-        <i class="fa fa-user-circle-o" aria-hidden="true"></i> Nataly_S_WD
+        <div class="icon">
+          <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+        </div>
+        NS_WD
       </div>
       <div class="rights">
-        <i class="fa fa-copyright" aria-hidden="true"></i> All rights are
-        reserved 
+        <div class="icon">
+          <i class="fa fa-copyright" aria-hidden="true"></i>
+        </div>
+        All rights are reserved 2020
       </div>
       <div class="contacts">
-        <i class="fa fa-envelope-o" aria-hidden="true"></i>
-        <i class="fa fa-telegram" aria-hidden="true"></i>
-
-        <i class="fa fa-github" aria-hidden="true"></i>
+        <div class="icon">
+          <i class="fa fa-envelope-o" aria-hidden="true"></i>
+        </div>
+        <div class="icon">
+          <a href=""><i class="fa fa-telegram" aria-hidden="true"></i></a>
+        </div>
+        <div class="icon">
+          <a><i class="fa fa-github" aria-hidden="true"></i></a>
+        </div>
       </div>
     </footer>
   </body>
