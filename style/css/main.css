@@ -157,6 +157,11 @@ section {
   border-color: #ffffff8a;
 }
 
+.valid.flag:hover {
+  background-color: #cecab70e;
+  border-color: #f5f3eb #bab7a9 #bab7a9 #fff9db;
+}
+
 .checked {
   border: 2px solid;
   background-color: #cecab70e;
@@ -302,8 +307,8 @@ footer {
   display: inline-block;
   margin: 0 10px;
   text-shadow: 2px 2px 3px rgba(88, 87, 87, 0.637);
-  -webkit-transition: all .5s;
-  transition: all .5s;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
 }
 
 .icon:hover {
