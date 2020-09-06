@@ -3,7 +3,7 @@ $red: #ff6f8e;
 $yellow: #f5f0b3;
 $green: #85cfcc;
 $shadow: 2px 2px 15px 2px rgb(88, 87, 87);
-$t-shadow: 2px 2px 3px rgba(88, 87, 87, 0.637);
+$t-shadow: 3px 3px 3px rgba(88, 87, 87, 0.637);
 
 /////////////////Font///////////////////////////////
 @font-face {
@@ -36,9 +36,8 @@ body {
 }
 h1,
 h3,
-.flags,
 #result,
-.rights {
+.icon, .pulse {
   text-shadow: $t-shadow;
 }
 
@@ -49,18 +48,10 @@ h1 {
 .pulse {
   display: inline-block;
   &:hover {
-    animation: title-bomb 1s infinite;
+    animation: pulse 1s infinite;
   }
 }
-
-////////////////Aside columns with description//////
-section {
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-}
-
-@keyframes title-bomb {
+@keyframes pulse {
   0% {
     transform: scale(1);
   }
@@ -70,6 +61,12 @@ section {
   100% {
     transform: scale(1);
   }
+}
+////////////////Aside columns with description//////
+section {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
 }
 .description,
 .options {
@@ -82,26 +79,29 @@ section {
 //////////////////////Main column with game/////////
 .container {
   width: 45%;
+  height: auto;
   display: flex;
   margin: 0;
   justify-content: center;
   flex-direction: column;
+ 
 }
 .grid {
   height: 400px;
-  width: 400px;
+  max-width: 400px;
   display: flex;
   flex-wrap: wrap;
   background-color: #dcd6bc6e;
   margin: 1vw auto;
+  padding: 5px;
   box-shadow: $shadow;
   transition: all 0.5s;
 }
 .valid,
 .checked,
 .bomb {
-  height: 40px;
-  width: 40px;
+  height: 10%;
+  width: 10%;
   box-sizing: border-box;
 }
 .valid {
@@ -112,7 +112,7 @@ section {
   background-color: #cecab70e;
   border-color: #ffffff8a;
 }
-.valid.flag:hover {
+.valid.flag:hover, .bomb.flag:hover {
   background-color: #cecab70e;
   border-color: #f5f3eb #bab7a9 #bab7a9 #fff9db;
 }
@@ -212,7 +212,7 @@ footer {
   font-size: 1.1em;
   display: inline-block;
   margin: 0 10px;
-  text-shadow: $t-shadow;
+ 
   transition: all 0.5s;
   &:hover {
     transform: scale(1.6);

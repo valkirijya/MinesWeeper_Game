@@ -1,3 +1,4 @@
+"use strict";
 document.addEventListener("DOMContentLoaded", () => {
   const grid = document.querySelector(".grid");
   const flagsLeft = document.querySelector("#flags-left");
@@ -8,11 +9,11 @@ document.addEventListener("DOMContentLoaded", () => {
   let flags = 0;
   let squares = [];
   let isGameOver = false;
-
-
-
+  let clicks = 0;
   //create Board
+
   function createBoard() {
+    clicks = 0;
     flagsLeft.innerHTML = bombAmount;
 
     //get shuffled game array with random bombs
@@ -105,13 +106,26 @@ document.addEventListener("DOMContentLoaded", () => {
   //click on square actions
   function click(square) {
     let currentId = square.id;
+    clicks += 1;
     if (isGameOver) return;
     if (
       square.classList.contains("checked") ||
       square.classList.contains("flag")
     )
       return;
-    if (square.classList.contains("bomb")) {
+    if (square.classList.contains("bomb") && clicks == 1) {
+      sessionStorage.setItem("squareId", square.id);
+      window.location.reload();
+      let firstClkickBomb = sessionStorage.getItem("squareId");
+      square.id = firstClkickBomb;
+      sessionStorage.clear();
+      window.addEventListener("DOMContentLoaded", () => {
+        e.preventDefault();
+        let event = new Event("click", { bubbles: true });
+        square.dispatchEvent(event);
+        window.alert(sessionStorage.getItem("squareId"));
+      });
+    } else if (square.classList.contains("bomb")) {
       gameOver(square);
     } else {
       let total = square.getAttribute("data");

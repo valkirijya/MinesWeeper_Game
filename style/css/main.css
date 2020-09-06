@@ -36,10 +36,9 @@ body {
 
 h1,
 h3,
-.flags,
 #result,
-.rights {
-  text-shadow: 2px 2px 3px rgba(88, 87, 87, 0.637);
+.icon, .pulse {
+  text-shadow: 3px 3px 3px rgba(88, 87, 87, 0.637);
 }
 
 h1 {
@@ -51,8 +50,38 @@ h1 {
 }
 
 .pulse:hover {
-  -webkit-animation: title-bomb 1s infinite;
-          animation: title-bomb 1s infinite;
+  -webkit-animation: pulse 1s infinite;
+          animation: pulse 1s infinite;
+}
+
+@-webkit-keyframes pulse {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  50% {
+    -webkit-transform: scale(1.5);
+            transform: scale(1.5);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  50% {
+    -webkit-transform: scale(1.5);
+            transform: scale(1.5);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
 }
 
 section {
@@ -62,36 +91,6 @@ section {
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-}
-
-@-webkit-keyframes title-bomb {
-  0% {
-    -webkit-transform: scale(1);
-            transform: scale(1);
-  }
-  50% {
-    -webkit-transform: scale(1.5);
-            transform: scale(1.5);
-  }
-  100% {
-    -webkit-transform: scale(1);
-            transform: scale(1);
-  }
-}
-
-@keyframes title-bomb {
-  0% {
-    -webkit-transform: scale(1);
-            transform: scale(1);
-  }
-  50% {
-    -webkit-transform: scale(1.5);
-            transform: scale(1.5);
-  }
-  100% {
-    -webkit-transform: scale(1);
-            transform: scale(1);
-  }
 }
 
 .description,
@@ -109,6 +108,7 @@ section {
 
 .container {
   width: 45%;
+  height: auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -124,7 +124,7 @@ section {
 
 .grid {
   height: 400px;
-  width: 400px;
+  max-width: 400px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -132,6 +132,7 @@ section {
       flex-wrap: wrap;
   background-color: #dcd6bc6e;
   margin: 1vw auto;
+  padding: 5px;
   -webkit-box-shadow: 2px 2px 15px 2px #585757;
           box-shadow: 2px 2px 15px 2px #585757;
   -webkit-transition: all 0.5s;
@@ -141,8 +142,8 @@ section {
 .valid,
 .checked,
 .bomb {
-  height: 40px;
-  width: 40px;
+  height: 10%;
+  width: 10%;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
@@ -157,7 +158,7 @@ section {
   border-color: #ffffff8a;
 }
 
-.valid.flag:hover {
+.valid.flag:hover, .bomb.flag:hover {
   background-color: #cecab70e;
   border-color: #f5f3eb #bab7a9 #bab7a9 #fff9db;
 }
@@ -216,7 +217,7 @@ section {
   height: 45px;
   border: 1px solid rgba(214, 214, 214, 0.774);
   border-radius: 10px;
-  text-shadow: 2px 2px 3px rgba(88, 87, 87, 0.637);
+  text-shadow: 3px 3px 3px rgba(88, 87, 87, 0.637);
   -webkit-box-shadow: 2px 2px 15px 2px #585757;
           box-shadow: 2px 2px 15px 2px #585757;
 }
@@ -306,7 +307,6 @@ footer {
   font-size: 1.1em;
   display: inline-block;
   margin: 0 10px;
-  text-shadow: 2px 2px 3px rgba(88, 87, 87, 0.637);
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
 }
